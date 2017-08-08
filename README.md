@@ -53,7 +53,7 @@ $apiFactory = new \SeRanking\ApiFactory();
 $site = new \SeRanking\Entities\Site();
 
 // Set the sites attributes
-$site->url               = 'https://www.thebloggers.com'; // required
+$site->url               = 'www.thebloggers.com'; // required
 $site->title             = 'The Bloggers'; // required
 $site->depth             = 50; // optional (default: 100) - (50,100,150,200)
 $site->subdomain_match   = 0; // optional (default: 0) - (0 or 1)
