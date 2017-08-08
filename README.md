@@ -104,7 +104,7 @@ $apiFactory = new \SeRanking\ApiFactory();
 $keywords = [
   'keyword1',
   'keyword2',
-	'keyword3'
+  'keyword3'
 ];
 
 // Pass the keywords & a site id to the ApiFactory
