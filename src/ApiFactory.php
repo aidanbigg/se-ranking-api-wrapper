@@ -102,7 +102,18 @@ class ApiFactory extends ApiAdaptor {
 		// make request
 		$response = $this->makeRequest( null, $data );
 
-		// return id
+		// attach default search engines
+		$searchEngines = [
+			'1865' => [ // search engine id
+				'region_name' => 'United Kingdom', // Desired Region Name
+				'lang_code'   => 'en' // Language code
+			],
+			'434'  => null,
+			'408'  => null
+		];
+		$this->addSearchEngines( $response->siteid, $searchEngines );
+
+		// return site id
 		return $response->siteid;
 	}
 
@@ -211,5 +222,22 @@ class ApiFactory extends ApiAdaptor {
 		$this->apiMethod = 'getGoogleLangs';
 
 		return $this->makeRequest();
+	}
+
+	public function addSearchEngines( $siteId, $searchEngines ) {
+
+		$this->apiMethod = 'updateSiteSE';
+
+		$parameters = [
+			'siteid' => $siteId,
+		];
+
+		foreach ( $searchEngines as $se_k => $se_v ) {
+			$data['se'][ $se_k ] = $se_v;
+		}
+
+		$response = $this->makeRequest( $parameters, $data );
+
+		return $response;
 	}
 }
