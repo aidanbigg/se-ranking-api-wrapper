@@ -44,7 +44,7 @@ putenv( 'SE_RANKING_USERNAME=username' );
 putenv( 'SE_RANKING_PASSWORD=password' );
 ```
 
-## Create Site (this will automatically add the search engines - Google, Bing & Yahoo - to the site)
+## Create Site (this will automatically add the search engines: Google, Bing & Yahoo)
 ```
 // Create instance of the ApiFactory
 $apiFactory = new \SeRanking\ApiFactory();
