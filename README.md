@@ -146,7 +146,7 @@ There are some useful API calls that are not site specific. These can all be acc
 $apiFactory->searchVolumeRegions();
 
 // Returns avg.search volume for a specified region and a keyword.
-$apiFactory->searchVolumeRegions( $regionId, $keyword );
+$apiFactory->keySearchVolume( $regionId, $keyword );
 
 // Returns a list of all the search engines in an array of all possible regions (for Yandex).
 $apiFactory->searchEngines();
