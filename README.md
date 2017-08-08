@@ -138,3 +138,20 @@ $keywordsToDelete = [
 // Call the factory to delete keywords
 $apiFactory->destroySiteKeywords( $site->id, $keywordsToDelete );
 ``` 
+
+## Common API functions
+There are some useful API calls that are not site specific. These can all be accessed from the ApiFactory class.
+```
+// Returns a list of regions and there ID for avg.search volume
+$apiFactory->searchVolumeRegions();
+
+// Returns avg.search volume for a specified region and a keyword.
+$apiFactory->searchVolumeRegions( $regionId, $keyword );
+
+// Returns a list of all the search engines in an array of all possible regions (for Yandex).
+$apiFactory->searchEngines();
+
+// Returns full list of available languages for google search engines as key=>value (code=>full name) list. This method does not require any parameters
+$apiFactory->getGoogleLangs();
+
+```

@@ -42,7 +42,7 @@ abstract class ApiInterface {
 
 		// init curl
 		$curl = curl_init();
-		
+
 		// set options
 		curl_setopt_array( $curl, array(
 			CURLOPT_RETURNTRANSFER => 1,

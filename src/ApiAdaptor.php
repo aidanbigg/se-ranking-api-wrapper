@@ -3,6 +3,9 @@
 namespace SeRanking;
 
 /**
+ *
+ * Provides the Factory with the the ApiInterface
+ *
  * Class ApiAdaptor
  * @package SeRanking
  */

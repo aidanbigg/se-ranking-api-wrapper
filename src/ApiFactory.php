@@ -11,8 +11,11 @@ namespace SeRanking;
 use SeRanking\Entities\Site;
 
 /**
- * Class Site
- * @package SeRanking\Entities
+ *
+ * Handles all CRUD methods for the API's entities as well as a few additional common API calls
+ *
+ * Class ApiFactory
+ * @package SeRanking
  */
 class ApiFactory extends ApiAdaptor {
 
@@ -22,6 +25,9 @@ class ApiFactory extends ApiAdaptor {
 		parent::__construct();
 	}
 
+	/*
+	 * SITE API FUNCTIONS
+	 */
 	public function getSites() {
 
 		$data = array();
@@ -105,19 +111,6 @@ class ApiFactory extends ApiAdaptor {
 		$this->makeRequest( [ 'siteid' => $site_id ] );
 	}
 
-	public function getSiteKeywords( $site_id ) {
-
-		$this->apiMethod = 'siteKeywords';
-
-		$parameters = [
-			'siteid' => $site_id
-		];
-
-		$response = $this->makeRequest( $parameters );
-
-		return $response;
-	}
-
 	public function getSiteStats( $site_id, $dates, $se = null ) {
 
 		$this->apiMethod = 'stat';
@@ -131,6 +124,22 @@ class ApiFactory extends ApiAdaptor {
 		if ( isset( $se ) ) {
 			$parameters['SE'] = $se;
 		}
+
+		$response = $this->makeRequest( $parameters );
+
+		return $response;
+	}
+
+	/*
+	 * KEYWORD FUNCTIONS
+	 */
+	public function getSiteKeywords( $site_id ) {
+
+		$this->apiMethod = 'siteKeywords';
+
+		$parameters = [
+			'siteid' => $site_id
+		];
 
 		$response = $this->makeRequest( $parameters );
 
@@ -166,5 +175,41 @@ class ApiFactory extends ApiAdaptor {
 		$response = $this->makeRequest( null, $data );
 
 		return $response;
+	}
+
+	/*
+	 * COMMON API FUNCTIONS
+	 */
+	public function searchVolumeRegions() {
+
+		$this->apiMethod = 'searchVolumeRegions';
+
+		return $this->makeRequest();
+	}
+
+
+	public function keySearchVolume( $regionId, $keyword ) {
+		$this->apiMethod = 'keySearchVolume';
+
+		$parameters = [
+			'regionid' => $regionId,
+			'keyword'  => urlencode( $keyword )
+		];
+
+		return $this->makeRequest( $parameters );
+	}
+
+	public function searchEngines() {
+
+		$this->apiMethod = 'searchEngines';
+
+		return $this->makeRequest();
+	}
+
+	public function getGoogleLangs() {
+
+		$this->apiMethod = 'getGoogleLangs';
+
+		return $this->makeRequest();
 	}
 }
