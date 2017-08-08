@@ -56,25 +56,20 @@ class ApiAdaptor extends ApiInterface {
 	 */
 	private function authenticate() {
 
-		if ( SessionHandler::hasToken() ) {
-			// carry out whatever request
-		} else {
+		// set parameters
+		$parameters = [
+			'login' => $this->username,
+			'pass'  => md5( $this->password )
+		];
 
-			// set parameters
-			$parameters = [
-				'login' => $this->username,
-				'pass'  => md5( $this->password )
-			];
+		// continue authentication
+		try {
+			$this->get( 'login', 'GET', $parameters );
 
-			// continue authentication
-			try {
-				$this->get( 'login', 'GET', $parameters );
-
-				// set session token
-				SessionHandler::setToken( $this->response->token );
-			} catch ( ApiAdaptorException $e ) {
-				echo $e;
-			}
+			// set session token
+			SessionHandler::setToken( $this->response->token );
+		} catch ( ApiAdaptorException $e ) {
+			echo $e;
 		}
 	}
 

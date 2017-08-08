@@ -28,6 +28,11 @@ class ApiFactory extends ApiAdaptor {
 	/*
 	 * SITE API FUNCTIONS
 	 */
+
+	/**
+	 * Gets all websites for account
+	 * @return array
+	 */
 	public function getSites() {
 
 		$data = array();
@@ -46,6 +51,13 @@ class ApiFactory extends ApiAdaptor {
 		return $data;
 	}
 
+	/**
+	 * Updates a website dependent on parameters passed
+	 *
+	 * @param $site
+	 *
+	 * @return bool
+	 */
 	public function updateSite( $site ) {
 
 		$this->apiMethod = 'updateSite';
@@ -159,7 +171,6 @@ class ApiFactory extends ApiAdaptor {
 
 	public function addSiteKeywords( $site_id, $keywords ) {
 
-		echo 'here';
 		$this->apiMethod = 'addSiteKeywords';
 
 		$data = [
@@ -197,7 +208,6 @@ class ApiFactory extends ApiAdaptor {
 
 		return $this->makeRequest();
 	}
-
 
 	public function keySearchVolume( $regionId, $keyword ) {
 		$this->apiMethod = 'keySearchVolume';

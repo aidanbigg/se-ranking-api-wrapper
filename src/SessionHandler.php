@@ -13,7 +13,7 @@ class SessionHandler {
 	 * @return bool
 	 */
 	public static function hasToken() {
-		return ( isset( $_SESSION['se_ranking_token'] ) ? true : false );
+		return ( isset( $_SESSION['se_ranking_token'] ) && $_SESSION['se_ranking_token'] != '' ? true : false );
 	}
 
 	/**
@@ -35,5 +35,6 @@ class SessionHandler {
 	 */
 	public static function clearSession() {
 		empty( $_SESSION['se_ranking_token'] );
+		$_SESSION['se_ranking_token'] = '';
 	}
 }
