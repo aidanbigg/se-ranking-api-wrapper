@@ -1,0 +1,20 @@
+{
+  "name": "bigg/se-ranking-api-wrapper",
+  "description": "API Wrapper for the SE Ranking API",
+  "type": "library",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {},
+  "autoload": {
+    "psr-0": {
+      "SeRanking": "src"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aidan Ayala",
+      "email": "aidan@bigg.co.uk"
+    }
+  ]
+}
