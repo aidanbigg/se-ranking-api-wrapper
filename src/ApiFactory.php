@@ -8,7 +8,7 @@
 
 namespace SeRanking;
 
-use SeRanking\ApiAdaptor;
+use SeRanking\Entities\Site;
 
 /**
  * Class Site
