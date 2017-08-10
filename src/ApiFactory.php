@@ -116,10 +116,7 @@ class ApiFactory extends ApiAdaptor {
 
 		// attach default search engines
 		$searchEngines = [
-			'1865' => [ // search engine id
-				'region_name' => 'United Kingdom', // Desired Region Name
-				'lang_code'   => 'en' // Language code
-			],
+			'1865' => null,
 			'434'  => null,
 			'408'  => null
 		];

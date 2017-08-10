@@ -34,7 +34,7 @@ abstract class ApiInterface {
 		);
 
 		$response = $this->request( $url, $data, $method );
-
+		
 		$this->_handleResponse( $response );
 	}
 
@@ -48,7 +48,7 @@ abstract class ApiInterface {
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_URL            => $url,
 			CURLOPT_POST           => ( $method == 'POST' ? 1 : 0 ),
-			CURLOPT_POSTFIELDS     => $data
+			CURLOPT_POSTFIELDS     => $data,
 		) );
 
 		// execute request
