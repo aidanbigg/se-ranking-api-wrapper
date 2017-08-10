@@ -177,9 +177,7 @@ class ApiFactory extends ApiAdaptor {
 
 		$response = $this->makeRequest( null, $data );
 
-		echo '<pre>';
-		var_dump( $response );
-		echo '</pre>';
+		return $response;
 	}
 
 	public function destroySiteKeywords( $site_id, $keywords ) {
