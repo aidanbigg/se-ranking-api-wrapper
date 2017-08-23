@@ -39,7 +39,7 @@ class Site {
 
 	public $group_id;
 
-	public $day_of__week;
+	public $day_of_week;
 
 	public $site_active;
 
