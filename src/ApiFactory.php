@@ -68,28 +68,28 @@ class ApiFactory extends ApiAdaptor {
 
 			// option params
 			if ( isset( $site->title ) ) {
-				$parameters['site_title'] = $site->title;
+				$data['site_title'] = $site->title;
 			}
 			if ( isset( $site->url ) ) {
-				$parameters['site_name'] = $site->url;
+				$data['site_name'] = $site->url;
 			}
 			if ( isset( $site->exact_url ) ) {
-				$parameters['site_exact_url'] = $site->exact_url;
+				$data['site_exact_url'] = $site->exact_url;
 			}
 			if ( isset( $site->active ) ) {
-				$parameters['site_active'] = $site->site_active;
+				$data['site_active'] = $site->site_active;
 			}
 			if ( isset( $site->subdomain_match ) ) {
-				$parameters['site_subdomain_match'] = $site->subdomain_match;
+				$data['site_subdomain_match'] = $site->subdomain_match;
 			}
 			if ( isset( $site->depth ) ) {
-				$parameters['site_depth'] = $site->depth;
+				$data['site_depth'] = $site->depth;
 			}
 			if ( isset( $site->day_of_week ) ) {
-                		$parameters['day_of_week'] = $site->day_of_week;
+                		$data['day_of_week'] = $site->day_of_week;
             		}
 
-			$response = $this->makeRequest( $parameters );
+			$response = $this->makeRequest( $parameters, $data, 'POST' );
 
 			return $response->status;
 		} else {
