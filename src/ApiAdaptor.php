@@ -136,7 +136,7 @@ class ApiAdaptor extends ApiInterface {
 		}
 	}
 
-	public function makeRequest( $parameters, $data ) {
+	public function makeRequest( $parameters, $data, $method = 'GET' ) {
 
 		// check we have a token
 		if ( SessionHandler::hasToken() ) {
@@ -147,7 +147,7 @@ class ApiAdaptor extends ApiInterface {
 			// carry out the request
 			try {
 
-				$this->get( $this->apiMethod, 'GET', $parameters, $data );
+				$this->get( $this->apiMethod, $method, $parameters, $data );
 
 				return $this->response;
 			} catch ( ApiAdaptorException $e ) {
