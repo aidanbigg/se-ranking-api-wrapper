@@ -85,6 +85,9 @@ class ApiFactory extends ApiAdaptor {
 			if ( isset( $site->depth ) ) {
 				$parameters['site_depth'] = $site->depth;
 			}
+			if ( isset( $site->day_of_week ) ) {
+                		$parameters['day_of_week'] = $site->day_of_week;
+            		}
 
 			$response = $this->makeRequest( $parameters );
 
