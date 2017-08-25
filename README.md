@@ -60,6 +60,7 @@ $site->subdomain_match   = 0; // optional (default: 0) - (0 or 1)
 $site->exact_url         = 0; // optional (default: 0) - (0 or 1)
 $site->manual_check_freq = 'check_daily'; // optional (default: check_daily) - ('check_daily','check_1in3','check_weekly','check_yandex_up','manual')
 $site->auto_reports      = 0; // optional (default: 1) - (0 or 1)
+$site->day_of_week       = 1; // Values from 1 (Monday) to 7 (Sunday)
 
 // pass the site to the factory to create it. Method will return the SE Ranking site ID
 $siteId = $apiFactory->createSite( $site );
