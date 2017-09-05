@@ -111,6 +111,7 @@ $keywords = [
 // Pass the keywords & a site id to the ApiFactory
 $apiFactory->addSiteKeywords( SITE_ID, $keywords );
 ```
+## Search Engine ID's
 Adding keywords automatically adds 3 search Engines: Google UK, Yahoo & Bing. They are referenced & stored by ID
 ```
 1865 = Google UK
