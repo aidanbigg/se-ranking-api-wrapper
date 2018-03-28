@@ -140,7 +140,7 @@ class ApiAdaptor extends ApiInterface {
 		}
 	}
 
-	public function makeRequest( $parameters, $data, $method = 'GET' ) {
+	public function makeRequest( $parameters = null, $data = null, $method = 'GET' ) {
 
 		// check we have a token
 		if ( SessionHandler::hasToken() ) {
