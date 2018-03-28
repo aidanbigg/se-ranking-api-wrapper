@@ -86,19 +86,23 @@ class ApiAdaptor extends ApiInterface {
 		$this->response = json_decode( $response );
 
 		// message
-		if ( $this->response->code == 400 ) {
-			throw new ApiAdaptorException( 'Status 400 Error: ' . $this->response->message );
-		} else if ( $this->response->code == 403 ) {
-			throw new ApiAdaptorException( $this->response->message );
-		} else {
-			switch ( $this->response->message ) {
-				case 'Incorrect username or password':
-					throw new ApiAdaptorException( 'Error handling response from API (' . $this->response->message . ')' );
-					break;
-				default:
-					return true;
-					break;
+		if (isset($this->response->code)) {
+			if ( $this->response->code == 400 ) {
+				throw new ApiAdaptorException( 'Status 400 Error: ' . $this->response->message );
+			} else if ( $this->response->code == 403 ) {
+				throw new ApiAdaptorException( $this->response->message );
+			} else {
+				switch ( $this->response->message ) {
+					case 'Incorrect username or password':
+						throw new ApiAdaptorException( 'Error handling response from API (' . $this->response->message . ')' );
+						break;
+					default:
+						return true;
+						break;
+				}
 			}
+		} else {
+			return true;
 		}
 	}
 
