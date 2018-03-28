@@ -73,8 +73,8 @@ class ApiFactory extends ApiAdaptor {
 			if ( isset( $site->url ) ) {
 				$data['site_name'] = $site->url;
 			}
-			if ( isset( $site->exact_url ) ) {
-				$data['site_exact_url'] = $site->exact_url;
+			if ( isset( $site->site_exact_url ) ) {
+				$data['site_exact_url'] = $site->site_exact_url;
 			}
 			if ( isset( $site->active ) ) {
 				$data['site_active'] = $site->site_active;
